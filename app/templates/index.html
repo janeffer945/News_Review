@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+
+
+
+<body>
+  <section>
+    <div class="container-fluid mt-5">
+      <div class="row">
+        <div class="col-3">
+          <div class="card-header" id="header">
+            <h4>News Sources</h4>
+          </div>
+
+          <div class="card-body">
+            {% for source in sources %}
+
+              <a href="/article/{{source.id}}">
+                <p class="text-capitalize text-muted">{{source.name}}</p>
+              </a>
+              {% endfor %}
+
+          </div>
+          
+        </div>
+        <div class="col-9">
+          <h3 class="text-center">News Making The Headline Today</h3>
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- <div class="card-colums">
+              {% for article in articles %}
+              <div class="card">
+                <img src="{{article.image}}" alt="">
+                <h4 class="card-title">{{article.author}}</h4>
+                <p class="card-text">{{article.description}}</p>
+                <a href="{{article.url}}">
+                  <p class="card-text">Read More!!</p>
+                </a>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">Publish date:{{article.time}}</small>
+              </div>
+              {% endfor %} -->
+            {% for article in articles %}
+            <div class="col">
+              <div class="card h-100">
+                <img src="{{article.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Author:{{article.author}}</h5>
+                  <p class="card-text">{{article.description}}</p>
+                  <a href="{{article.url}}">
+                    <button type="button" class="btn btn-info">Read More!!!</button>
+                  </a>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">Date Posted: {{article.time}}</small>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+            <!-- {% for article in articles %}
+              <img src="{{article.image}}" alt="">
+              <span>{{article.author}} </span>
+              <span>{{article.description}} </span>
+              <span> {{article.url}}</span>
+              <span> {{article.time}}</span>
+              {% endfor %} -->
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    </div>
+  </section>
+</body>
+{% endblock %}
