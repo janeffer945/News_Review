@@ -37,10 +37,16 @@ class Topics:
     '''
     Class that instantiates objects of the news topic objects of the news sources
     '''
-    def __init__(self,author,description,time,url,image,title):
+    '''
+    Class that instantiates objects of the news article objects of the news sources
+    '''
+    def __init__(self,author,title,description,url,urlToImage,publishedAt,content,):
         self.author = author
-        self.description = description
-        self.time = time
+        self.title = title
+        self.description =description
         self.url = url
-        self.image = image
-        self.title = title            
+        self.urlToImage =urlToImage
+        self.publishedAt =publishedAt
+        self.content = content    
+
+         
