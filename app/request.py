@@ -30,7 +30,7 @@ def get_news():
         get_news_response= json.loads(get_news_data)
         print(get_news_response)
 
-        news_results = None
+        news_results = []
 
         if get_news_response['sources']:
             news_results_list = get_news_response['sources']
@@ -56,9 +56,8 @@ def process_results(news_list):
         name=news_item.get('name')
         description= news_item.get('description')
         url = news_item.get('url')
-        if id:
-            source_object = Source(id,name,description,url)
-            news_results.append(source_object)
+        source_object = Source(id,name,description,url)
+        news_results.append(source_object)
 
         return news_results
 
